@@ -1,9 +1,14 @@
-import React from 'react'
+import { Button } from "@/app/_components/ui/button"
+
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div className="flex w-screen items-center justify-center">
+      <h1 className="p-5 text-red-500">Home</h1>
+      <Button>Button</Button>
 
-export default Home
+    </div>
+  );
+};
+
+export default Home;
