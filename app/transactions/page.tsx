@@ -1,9 +1,25 @@
-import React from 'react'
+import { ArrowDownUpIcon } from "lucide-react";
+import { Button } from "../_components/ui/button";
+import { db } from "../_lib/prisma";
+import { DataTable } from "../_components/ui/data-table";
+import { transactioncolumns } from "./_colunms";
 
-const Transactions = () => {
+const Transactions = async () => {
+  // acessar as transações do meu banco de dados
+  const transactions = await db.transaction.findMany({});
   return (
-    <h1>Transactions page</h1>
-  )
-}
+    <div className="space-y-6 p-6">
+      {/* TÍTULO E BOTÃO */}
+      <div className="flex w-full items-center justify-between">
+        <h1 className="text-2xl font-bold">Transações</h1>
+        <Button className="rounded-full">
+          Adicionar transação
+          <ArrowDownUpIcon />
+        </Button>
+      </div>
+      <DataTable columns={transactioncolumns} data={transactions} />
+    </div>
+  );
+};
 
-export default Transactions
+export default Transactions;
