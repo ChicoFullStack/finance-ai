@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -30,17 +31,16 @@ import {
   TRANSACTION_PAYMENT_METHOD_OPTIONS,
   TRANSACTION_TYPE_OPTIONS,
 } from "../_constants/transactions";
-import { DatePicker } from "./ui/data-picker";
-import { DialogClose } from "@radix-ui/react-dialog";
+import { DatePicker } from "./ui/date-picker";
 import { z } from "zod";
 import {
+  TransactionType,
   TransactionCategory,
   TransactionPaymentMethod,
-  TransactionType,
 } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { UpsertTransaction } from "../_actions/upsert-transaction";
+import { upsertTransaction } from "../_actions/upsert-transaction";
 
 interface UpsertTransactionDialogProps {
   isOpen: boolean;
@@ -58,7 +58,7 @@ const formSchema = z.object({
       required_error: "O valor é obrigatório.",
     })
     .positive({
-      message: "O valor deve ser um número positivo.",
+      message: "O valor deve ser positivo.",
     }),
   type: z.nativeEnum(TransactionType, {
     required_error: "O tipo é obrigatório.",
@@ -78,9 +78,9 @@ type FormSchema = z.infer<typeof formSchema>;
 
 const UpsertTransactionDialog = ({
   isOpen,
-  setIsOpen,
   defaultValues,
   transactionId,
+  setIsOpen,
 }: UpsertTransactionDialogProps) => {
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -96,7 +96,7 @@ const UpsertTransactionDialog = ({
 
   const onSubmit = async (data: FormSchema) => {
     try {
-      await UpsertTransaction({ ...data, id: transactionId });
+      await upsertTransaction({ ...data, id: transactionId });
       setIsOpen(false);
       form.reset();
     } catch (error) {
@@ -125,7 +125,6 @@ const UpsertTransactionDialog = ({
           <DialogDescription>Insira as informações abaixo</DialogDescription>
         </DialogHeader>
 
-        {/* FORMULARIO ADD TRANSAÇÃO */}
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
@@ -137,7 +136,6 @@ const UpsertTransactionDialog = ({
                   <FormControl>
                     <Input placeholder="Digite o nome..." {...field} />
                   </FormControl>
-
                   <FormMessage />
                 </FormItem>
               )}
@@ -159,12 +157,10 @@ const UpsertTransactionDialog = ({
                       disabled={field.disabled}
                     />
                   </FormControl>
-
                   <FormMessage />
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="type"
@@ -177,7 +173,7 @@ const UpsertTransactionDialog = ({
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Selecione o tipo..." />
+                        <SelectValue placeholder="Select a verified email to display" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -188,12 +184,10 @@ const UpsertTransactionDialog = ({
                       ))}
                     </SelectContent>
                   </Select>
-
                   <FormMessage />
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="category"
@@ -217,12 +211,10 @@ const UpsertTransactionDialog = ({
                       ))}
                     </SelectContent>
                   </Select>
-
                   <FormMessage />
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="paymentMethod"
@@ -246,24 +238,21 @@ const UpsertTransactionDialog = ({
                       ))}
                     </SelectContent>
                   </Select>
-
                   <FormMessage />
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="date"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Data </FormLabel>
+                  <FormLabel>Data</FormLabel>
                   <DatePicker value={field.value} onChange={field.onChange} />
                   <FormMessage />
                 </FormItem>
               )}
             />
-
             <DialogFooter>
               <DialogClose asChild>
                 <Button type="button" variant="outline">
