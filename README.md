@@ -51,8 +51,24 @@ Utilizar o Conventional Commits 1.0.0
 
 Instale as dependências:
 
-- `npm install husky --save-dev`
-- `npx husky install`
+- `npm install -D husky@9.1.6`
+- `npm install -D lint-staged@12.3.2`
+- `npx husky init`
+- `npm install git-commit-msg-linter@5.0.8`
+Comando:
+- `npx husky add .husky/commit-msg ".git/hooks/commit-msg \$1"` ou
+  Adicionar o arquivo `commit-msg` na pasta `.husky` com o conteúdo:
+- `.git/hooks/commit-msg $1`
+
+Configurar o `pre-commit` na pasta `.husky`:
+- npx lint-staged
+Criar arquivo `.lintstagedrc.json`:
+{
+    "*.ts?(x)": [
+        "eslint --fix",
+        "prettier --write"
+    ]
+}
 ---------------------------------------------------------------------------------------------------
 
 
@@ -83,4 +99,7 @@ Autenticação de usuários com Clerk:
 - `https://clerk.dev/docs/authentication/nextjs`
 Comandos:
 - `npm install @clerk/nextjs@5.7.5`
+---------------------------------------------------------------------------------------------------
+
+
 
