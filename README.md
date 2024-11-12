@@ -35,6 +35,17 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## Commits
+
+Para gerar commits automaticamente, utilize o `husky` e o `commitlint`.
+Utilizar o Conventional Commits 1.0.0
+- `https://www.conventionalcommits.org/en/v1.0.0/#specification`
+
+Instale as dependências:
+
+- `npm install husky --save-dev`
+- `npx husky install`
+
 ## comandos utilizados:
 
 - `npm install prisma@5.21.1`: Instala o prisma .
