@@ -35,6 +35,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## Setup do Projeto Next.js:
+
 ## comandos utilizados:
 
 - `npm install prisma@5.21.1`: Instala o prisma .
@@ -63,12 +65,14 @@ Comando:
 Configurar o `pre-commit` na pasta `.husky`:
 - npx lint-staged
 Criar arquivo `.lintstagedrc.json`:
+- `
 {
     "*.ts?(x)": [
         "eslint --fix",
         "prettier --write"
     ]
 }
+`
 ---------------------------------------------------------------------------------------------------
 
 
@@ -100,6 +104,11 @@ Autenticação de usuários com Clerk:
 Comandos:
 - `npm install @clerk/nextjs@5.7.5`
 ---------------------------------------------------------------------------------------------------
+Migrando o banco de dados para o docker:
+- `docker-compose up -d` 
+- `npx prisma migrate dev` desenvolvimento
+- `npx prisma migrate deploy` produção
+
 
 
 
