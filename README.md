@@ -79,3 +79,8 @@ Modificar o arquivo components.json:
     "hooks": "@/app/_hooks"
   }`
 
+Autenticação de usuários com Clerk:
+- `https://clerk.dev/docs/authentication/nextjs`
+Comandos:
+- `npm install @clerk/nextjs@5.7.5`
+
