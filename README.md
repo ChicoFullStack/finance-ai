@@ -91,13 +91,16 @@ Comandos:
 ---------------------------------------------------------------------------------------------------
 
 Modificar o arquivo components.json:
--`para - "aliases": {
+para - 
+```bash
+"aliases": {
     "components": "@/app/_components",
     "utils": "@/app/_lib/utils",
     "ui": "@/app/_components/ui",
     "lib": "@/app/_lib",
     "hooks": "@/app/_hooks"
-  }`
+  }
+```
 
 Autenticação de usuários com Clerk:
 - `https://clerk.dev/docs/authentication/nextjs`
