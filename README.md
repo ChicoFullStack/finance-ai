@@ -86,6 +86,7 @@ Comandos:
 
 Instale shadcn-ui component library:
 - `https://ui.shadcn.com/docs/installation/next`
+  
 Comandos:
 - `npx shadcn@2.1.3 init`
 ---------------------------------------------------------------------------------------------------
@@ -104,6 +105,7 @@ para -
 
 Autenticação de usuários com Clerk:
 - `https://clerk.dev/docs/authentication/nextjs`
+  
 Comandos:
 - `npm install @clerk/nextjs@5.7.5`
 ---------------------------------------------------------------------------------------------------
