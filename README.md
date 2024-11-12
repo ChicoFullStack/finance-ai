@@ -65,14 +65,12 @@ Comando:
 Configurar o `pre-commit` na pasta `.husky`:
 - npx lint-staged
 Criar arquivo `.lintstagedrc.json`:
-- `
 {
     "*.ts?(x)": [
         "eslint --fix",
         "prettier --write"
     ]
 }
-`
 ---------------------------------------------------------------------------------------------------
 
 
@@ -86,29 +84,29 @@ Comandos:
 
 Instale shadcn-ui component library:
 - `https://ui.shadcn.com/docs/installation/next`
+  
 Comandos:
 - `npx shadcn@2.1.3 init`
 ---------------------------------------------------------------------------------------------------
 
 Modificar o arquivo components.json:
--`para - "aliases": {
+para - 
+```bash
+"aliases": {
     "components": "@/app/_components",
     "utils": "@/app/_lib/utils",
     "ui": "@/app/_components/ui",
     "lib": "@/app/_lib",
     "hooks": "@/app/_hooks"
-  }`
+  }
+```
 
 Autenticação de usuários com Clerk:
 - `https://clerk.dev/docs/authentication/nextjs`
+  
 Comandos:
 - `npm install @clerk/nextjs@5.7.5`
 ---------------------------------------------------------------------------------------------------
-Migrando o banco de dados para o docker:
-- `docker-compose up -d` 
-- `npx prisma migrate dev` desenvolvimento
-- `npx prisma migrate deploy` produção
-
 
 
 
