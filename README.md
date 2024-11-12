@@ -106,8 +106,8 @@ Comandos:
 ---------------------------------------------------------------------------------------------------
 Migrando o banco de dados para o docker:
 - `docker-compose up -d` 
-- `npx prisma migrate dev` desenvolvimento
-- `npx prisma migrate deploy` produção
+- `npx prisma migrate dev` -> desenvolvimento
+- `npx prisma migrate deploy` -> produção
 
 
 
