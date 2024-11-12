@@ -65,14 +65,14 @@ Comando:
 Configurar o `pre-commit` na pasta `.husky`:
 - npx lint-staged
 Criar arquivo `.lintstagedrc.json`:
-- `
+- ```
 {
     "*.ts?(x)": [
         "eslint --fix",
         "prettier --write"
     ]
 }
-`
+```
 ---------------------------------------------------------------------------------------------------
 
 
