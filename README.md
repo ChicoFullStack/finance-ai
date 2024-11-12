@@ -46,6 +46,10 @@ Instale as dependências:
 - `npm install husky --save-dev`
 - `npx husky install`
 
+Plugins:
+- `https://tailwindcss.com/blog/automatic-class-sorting-with-prettier`
+- `npm install -D prettier prettier-plugin-tailwindcss`
+
 ## comandos utilizados:
 
 - `npm install prisma@5.21.1`: Instala o prisma .
