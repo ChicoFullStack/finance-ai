@@ -35,23 +35,47 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## Commits
-
-Para gerar commits automaticamente, utilize o `husky` e o `commitlint`.
-Utilizar o Conventional Commits 1.0.0
-- `https://www.conventionalcommits.org/en/v1.0.0/#specification`
-
-Instale as dependências:
-
-- `npm install husky --save-dev`
-- `npx husky install`
-
-Plugins:
-- `https://tailwindcss.com/blog/automatic-class-sorting-with-prettier`
-- `npm install -D prettier prettier-plugin-tailwindcss`
-
 ## comandos utilizados:
 
 - `npm install prisma@5.21.1`: Instala o prisma .
 - `npx prisma init`: Roda o prisma.
 - `npx prisma migrate dev -- name init_db`: Migra o schema db para o banco de dados do projeto para produção.
+---------------------------------------------------------------------------------------------------
+
+## Commits
+
+Para gerar commits automaticamente, utilize o `husky` e o `commitlint`.
+Utilizar o Conventional Commits 1.0.0
+- `https://www.conventionalcommits.org/en/v1.0.0/#specification`
+---------------------------------------------------------------------------------------------------
+
+Instale as dependências:
+
+- `npm install husky --save-dev`
+- `npx husky install`
+---------------------------------------------------------------------------------------------------
+
+
+Plugins:
+- `https://tailwindcss.com/blog/automatic-class-sorting-with-prettier`
+
+Comandos:
+- `npm install -D prettier prettier-plugin-tailwindcss`
+---------------------------------------------------------------------------------------------------
+
+
+Instale shadcn-ui component library:
+- `https://ui.shadcn.com/docs/installation/next`
+Comandos:
+- `npx shadcn@2.1.3 init`
+---------------------------------------------------------------------------------------------------
+
+Modificar o arquivo components.json:
+-`para - "aliases": {
+    "components": "@/app/_components",
+    "utils": "@/app/_lib/utils",
+    "ui": "@/app/_components/ui",
+    "lib": "@/app/_lib",
+    "hooks": "@/app/_hooks"
+  }`
+
